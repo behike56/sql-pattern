@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:15.8-bookworm
+    environment:
+      POSTGRES_DB: ${PDB}
+      POSTGRES_USER: ${PUSER}
+      POSTGRES_PASSWORD: ${PPASS}
+    volumes:
+      - db-store:/var/lib/postgresql/data
+      - ./init-sql/:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
+volumes:
+  db-store:
