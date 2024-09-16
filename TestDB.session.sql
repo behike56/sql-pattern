@@ -1,3 +1,4 @@
+-- SQL Toolsのセッション用sql
 SELECT ih.employee_id,
     ih.issue_date,
     ih.issue_type,
