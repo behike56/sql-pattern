@@ -1,4 +1,6 @@
-CREATE TYPE issue_type_enum AS ENUM ('01', '02', '03', '06', '10', '14');
+-- 異動区分: 雇用、昇進、出向、出向復帰、退職、休職、休職復帰、
+CREATE TYPE issue_type_enum AS ENUM ('01', '02', '03', '04', '06', '10', '14', '15');
+-- 退職区分: 自己都合、希望退職、身分変更、定年退職、介護、死亡、懲戒免職
 CREATE TYPE retired_type_enum AS ENUM ('010', '020', '030', '040', '050', '060');
 
 -- 異動履歴
@@ -12,9 +14,9 @@ CREATE TABLE issue_history (
 );
 
 COMMENT ON TABLE issue_history IS '異動履歴';
-COMMENT ON COLUMN issue_history.employee_id IS '社員ID';
-COMMENT ON COLUMN issue_history.issue_date IS '発令日付';
-COMMENT ON COLUMN issue_history.issue_type IS '発令区分';
+COMMENT ON COLUMN issue_history.employee_id IS '従業員ID';
+COMMENT ON COLUMN issue_history.issue_date IS '異動日付';
+COMMENT ON COLUMN issue_history.issue_type IS '異動区分';
 COMMENT ON COLUMN issue_history.start_date IS '勤務開始日';
 COMMENT ON COLUMN issue_history.retired_type IS '退職理由';
 
