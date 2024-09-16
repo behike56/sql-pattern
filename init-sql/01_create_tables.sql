@@ -42,3 +42,15 @@ CREATE TABLE system_date (
 
 COMMENT ON TABLE system_date IS 'システム日付';
 COMMENT ON COLUMN system_date.sys_date IS '日付';
+
+CREATE TABLE receipts (
+    customer_id CHAR(4) NOT NULL,
+    seq INTEGER NOT NULL,
+    price INTEGER NOT NULL,
+    PRIMARY KEY (customer_id, seq)
+);
+
+COMMENT ON TABLE receipts IS '購入明細';
+COMMENT ON COLUMN receipts.customer_id IS '顧客ID';
+COMMENT ON COLUMN receipts.seq IS '枝番';
+COMMENT ON COLUMN receipts.price IS '購入価格';
