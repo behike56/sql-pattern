@@ -54,3 +54,16 @@ COMMENT ON TABLE receipts IS '購入明細';
 COMMENT ON COLUMN receipts.customer_id IS '顧客ID';
 COMMENT ON COLUMN receipts.seq IS '枝番';
 COMMENT ON COLUMN receipts.price IS '購入価格';
+
+
+CREATE TABLE addresses (
+    name VARCHAR(32) NOT NULL,
+    family_id INTEGER NOT NULL,
+    address VARCHAR(64) NOT NULL,
+    CONSTRAINT pk_addresses PRIMARY KEY(name)
+);
+
+COMMENT ON TABLE addresses IS '住所';
+COMMENT ON COLUMN addresses.name IS '従業員名';
+COMMENT ON COLUMN addresses.family_id IS '家族ID';
+COMMENT ON COLUMN addresses.address IS '住所';
