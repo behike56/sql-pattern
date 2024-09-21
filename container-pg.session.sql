@@ -135,3 +135,18 @@ LEFT JOIN suspension_records sr
   ON l.employee_id = sr.employee_id
 LEFT JOIN return_to_work_records rtw
   ON l.employee_id = rtw.employee_id;
+
+SELECT emp.employee_id,
+  tenure.issue_type,
+  tenure.issue_date
+FROM employee emp
+  JOIN (
+    SELECT ih1.employee_id,
+      ih1.issue_type,
+      ih1.issue_date,
+      ROW_NUMBER() OVER (PARTITION BY ih1.employee_id ORDER BY ih1.issue_date DESC) as rn
+    FROM issue_history ih1
+    JOIN system_date sysd ON ih1.issue_date <= sysd.sys_date
+    WHERE ih1.issue_type != '06'
+  ) tenure ON emp.employee_id = tenure.employee_id
+WHERE tenure.rn = 1;
