@@ -6,8 +6,8 @@
             "port": 5432,
             "driver": "PostgreSQL",
             "name": "container-pg",
-            "database": "mydatabase",
-            "username": "myuser"
+            "database": "ps16",
+            "username": "behike56"
         }
     ]
 }
