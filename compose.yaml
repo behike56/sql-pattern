@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres:15.8-bookworm
+    image: postgres:16.4-bookworm
     environment:
       POSTGRES_DB: ${PDB}
       POSTGRES_USER: ${PUSER}
